@@ -48,7 +48,7 @@ critic_prompt = ChatPromptTemplate.from_messages([
     ("system", "You are a sharp and constructive research reviewer. Read the summary provided and critique it strictly for factual accuracy, logical flow, clarity, and missing information. Be honest and specific. Do not hold back."),
     ("user", """Review the research report below and evalutate it strictly:
     Topic: {topic}
-    Summary: {summary}
+    Research Report: {research}
     Respong in this exact format:
     Score: x/10
     
