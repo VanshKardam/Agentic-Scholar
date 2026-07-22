@@ -1,84 +1,62 @@
-# 🤖 Agentic Scholar
+# 🎓 Agentic Scholar
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![LangChain](https://img.shields.io/badge/LangChain-🦜🔗-green.svg)](https://python.langchain.com/)
+**Agentic Scholar** is a fully automated, multi-agent AI research system built with **LangChain**, **LangGraph**, and **Mistral AI**. It leverages a coordinated team of specialized AI agents to scour the web, scrape articles, synthesize findings into a comprehensive academic report, and critically review its own work.
 
-A fully autonomous AI system where multiple specialized Large Language Model (LLM) agents collaborate to conduct deep research and produce professional, comprehensive reports on any given topic.
+The system features a beautiful, glassmorphic **Streamlit** user interface.
 
-Instead of relying on a single conversational model, this project employs a multi-agent architecture where agents with distinct roles—Searching, Reading, Writing, and Critiquing—work in tandem, sharing a unified memory space to synthesize high-quality intelligence.
+## 🚀 Features
 
----
+The pipeline operates in four distinct steps powered by four specialized agents:
 
-## 🌟 Key Features
-
-*   **🔍 Search Agent**: Autonomously browses the live internet to discover the most relevant, credible, and up-to-date sources for the requested topic.
-*   **📖 Reader Agent**: Dives deep into the identified sources, intelligently scraping, filtering, and extracting meaningful content while ignoring noise.
-*   **✍️ Writer Agent**: Synthesizes the gathered intelligence into a well-structured, detailed, and highly readable professional report.
-*   **🧐 Critic Agent**: Acts as a senior researcher, reviewing the Writer's draft, scoring it against quality metrics, and providing actionable feedback for iterative improvement.
-*   **🧠 Shared Memory System**: Agents are orchestrated via a shared state, ensuring seamless context handover and preventing information loss during the research pipeline.
+1. 🔍 **Search Agent**: Uses the **Tavily API** to hunt for the most relevant and up-to-date sources based on your research topic.
+2. 📖 **Reader Agent**: Autonomously selects the best URLs and uses **BeautifulSoup** to scrape the full-text content of the articles, filtering out noise.
+3. ✍️ **Writer Agent**: Synthesizes the scraped knowledge into a structured, comprehensive academic report complete with an Introduction, Key Findings, Conclusion, and Cited Sources.
+4. 🧐 **Critic Agent**: Acts as a harsh peer-reviewer. It evaluates the final report, scores it out of 10, and highlights strengths, weaknesses, and actionable improvements.
 
 ## 🛠️ Tech Stack
 
-*   **Core Framework**: [LangChain](https://python.langchain.com/) & LangGraph (for multi-agent orchestration)
-*   **Language Models**: Support for OpenAI GPT-4o / Google Gemini models
-*   **Pipeline Architecture**: LangChain Expression Language (LCEL)
-*   **Web Search Integration**: Tavily API / DuckDuckGo Search
-*   **Web Scraping**: BeautifulSoup4 / Playwright (for dynamic content)
-*   **Vector Database (Optional)**: ChromaDB / FAISS for semantic caching
+- **Framework**: LangChain, LangGraph (LCEL)
+- **LLM**: Mistral AI (`mistral-medium-latest`)
+- **Tools**: Tavily Search API, BeautifulSoup4
+- **UI**: Streamlit
+- **Language**: Python
 
-## 🏗️ Architecture
+## ⚙️ Installation
 
-```mermaid
-graph TD;
-    User[User Prompt] --> State[Shared Agent Memory/State]
-    State --> Search[🔍 Search Agent]
-    Search --> |URLs| Reader[📖 Reader Agent]
-    Reader --> |Extracted Context| Writer[✍️ Writer Agent]
-    Writer --> |Draft Report| Critic[🧐 Critic Agent]
-    Critic --> |Feedback| Writer
-    Critic --> |Approval| Output[Final Research Report]
-```
-
-## 🚀 Getting Started
-
-*(Codebase is currently under active development. Complete setup instructions and the main orchestration loop will be pushed shortly.)*
-
-### Prerequisites
-*   Python 3.10+
-*   OpenAI / Anthropic / Gemini API Key
-*   Tavily Search API Key
-
-### Installation
-
-1. Clone the repository:
+1. Navigate to the project directory:
    ```bash
-   git clone https://github.com/VanshKardam/Agentic-Scholar.git
-   cd Agentic-Scholar
+   cd "Agentic Scholar"
    ```
-2. Install dependencies:
+
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv .venv
+   .\.venv\Scripts\activate
+   ```
+
+3. Install the dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-3. Set up environment variables:
-   ```bash
-   cp .env.example .env
-   # Add your API keys to the .env file
+
+4. Set up your environment variables. Ensure your `.env` file contains your API keys:
+   ```env
+   MISTRAL_API_KEY=your_mistral_key_here
+   TAVILY_API_KEY=your_tavily_key_here
    ```
 
-## 🎯 Current Status & Roadmap
+## 🎮 How to Run
 
-This project is in its initial setup phase. Over the coming weeks, the following milestones will be completed:
-- [ ] Initialize LCEL pipelines and shared memory state schemas.
-- [ ] Implement the `Search` and `Reader` toolsets.
-- [ ] Develop the iterative `Writer` and `Critic` feedback loop using LangGraph.
-- [ ] Add support for generating reports in multiple formats (Markdown, PDF).
-- [ ] Build a simple Streamlit/Gradio UI for easier interaction.
+To make launching the app as easy as possible, use the provided helper scripts which automatically activate the virtual environment and launch the Streamlit app.
 
-## 🤝 Contributing
+**If using PowerShell:**
+```powershell
+.\run.ps1
+```
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/VanshKardam/Agentic-Scholar/issues).
+**If using Command Prompt:**
+```cmd
+run.bat
+```
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Once running, open your browser to `http://localhost:8501`. Enter any research topic and watch the agents go to work!
