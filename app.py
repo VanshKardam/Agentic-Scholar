@@ -164,7 +164,7 @@ st.markdown("""
 st.markdown("""
 <div class="hero-container">
     <div class="hero-title">🎓 Agentic Scholar</div>
-    <div class="hero-subtitle">Multi-Agent AI Research System powered by LangGraph & Mistral</div>
+    <div class="hero-subtitle">Multi-Agent AI Research System powered by LangChain & Mistral</div>
     <div class="agent-pills">
         <span class="pill">🔍 Search Agent</span>
         <span class="pill">📖 Reader Agent</span>

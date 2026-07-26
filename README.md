@@ -1,6 +1,6 @@
 # 🎓 Agentic Scholar
 
-**Agentic Scholar** is a fully automated, multi-agent AI research system built with **LangChain**, **LangGraph**, and **Mistral AI**. It leverages a coordinated team of specialized AI agents to scour the web, scrape articles, synthesize findings into a comprehensive academic report, and critically review its own work.
+**Agentic Scholar** is a fully automated, multi-agent AI research system built with **LangChain** and **Mistral AI**. It leverages a coordinated team of specialized AI agents to scour the web, scrape articles, synthesize findings into a comprehensive academic report, and critically review its own work.
 
 The system features a beautiful, glassmorphic **Streamlit** user interface.
 
@@ -15,7 +15,7 @@ The pipeline operates in four distinct steps powered by four specialized agents:
 
 ## 🛠️ Tech Stack
 
-- **Framework**: LangChain, LangGraph (LCEL)
+- **Framework**: LangChain (Agents & LCEL)
 - **LLM**: Mistral AI (`mistral-medium-latest`)
 - **Tools**: Tavily Search API, BeautifulSoup4
 - **UI**: Streamlit
