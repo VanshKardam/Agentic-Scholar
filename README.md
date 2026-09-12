@@ -1,6 +1,6 @@
 # 🎓 Agentic Scholar
 
-**Agentic Scholar** is a fully automated, multi-agent AI research system built with **LangChain** and **Mistral AI**. It leverages a coordinated team of specialized AI agents to scour the web, scrape articles, synthesize findings into a comprehensive academic report, and critically review its own work.
+**Agentic Scholar** is a fully automated, multi-agent AI research system built with **LangChain**, **Gemini**, **Groq**, and **Mistral AI**. It leverages a coordinated team of specialized AI agents to scour the web, scrape articles, synthesize findings into a comprehensive academic report, and critically review its own work.
 
 The system features a beautiful, glassmorphic **Streamlit** user interface.
 
@@ -16,7 +16,7 @@ The pipeline operates in four distinct steps powered by four specialized agents:
 ## 🛠️ Tech Stack
 
 - **Framework**: LangChain (Agents & LCEL)
-- **LLM**: Mistral AI (`mistral-medium-latest`)
+- **LLM**: Gemini 1.5 Flash (Primary), Groq Llama 3 (Fallback), Mistral (Fallback)
 - **Tools**: Tavily Search API, BeautifulSoup4
 - **UI**: Streamlit
 - **Language**: Python
@@ -43,6 +43,8 @@ The pipeline operates in four distinct steps powered by four specialized agents:
    ```env
    MISTRAL_API_KEY=your_mistral_key_here
    TAVILY_API_KEY=your_tavily_key_here
+   GOOGLE_API_KEY=your_google_key_here
+   GROQ_API_KEY=your_groq_key_here
    ```
 
 ## 🎮 How to Run
