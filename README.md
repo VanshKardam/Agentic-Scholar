@@ -1,5 +1,7 @@
 # 🎓 Agentic Scholar
 
+🌐 **[Try the Live App Here!](https://agentic-scholar-jqrzq9vsfse7ogkcicdcpf.streamlit.app/)**
+
 **Agentic Scholar** is a fully automated, multi-agent AI research system built with **LangChain**, **Gemini**, **Groq**, and **Mistral AI**. It leverages a coordinated team of specialized AI agents to scour the web, scrape articles, synthesize findings into a comprehensive academic report, and critically review its own work.
 
 The system features a beautiful, glassmorphic **Streamlit** user interface.
