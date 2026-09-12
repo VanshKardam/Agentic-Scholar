@@ -45,3 +45,7 @@ pydantic>=2.5.0
 
 # Optional (for advanced parsing / HTML cleanup)
 html5lib>=1.1
+
+# Fallback LLMs
+langchain-google-genai>=1.0.0
+langchain-groq>=0.1.0

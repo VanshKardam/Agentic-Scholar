@@ -4,6 +4,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 from agents import build_reader_agent, build_search_agent, writer_chain, critic_chain
 from rich import print
+import time
 
 
 def run_research_pipiline(topic: str, progress_callback=None) -> dict:
@@ -22,6 +23,9 @@ def run_research_pipiline(topic: str, progress_callback=None) -> dict:
     print("\n---search result---\n")
     print(state["search_results"])
     print("\n---")
+    
+    # Pause to prevent rate limits
+    time.sleep(3)
 
     # Step 2: reader agent working
     if progress_callback: progress_callback("📖 Step 2 — Reader Agent is scraping top resources...")
@@ -44,6 +48,9 @@ def run_research_pipiline(topic: str, progress_callback=None) -> dict:
     print("\n---scraped content---\n")
     print(state["scraped_content"])
     print("\n---")
+    
+    # Pause to prevent rate limits
+    time.sleep(3)
 
     # Step 3: writing chain
     if progress_callback: progress_callback("✍️ Step 3 — Writer is drafting the research report...")
@@ -63,6 +70,9 @@ def run_research_pipiline(topic: str, progress_callback=None) -> dict:
     print("\n---Report---\n")
     print(state["report"])
     print("\n---")
+
+    # Pause to prevent rate limits
+    time.sleep(3)
 
     # Step 4: critic chain
     if progress_callback: progress_callback("🧐 Step 4 — Critic is peer-reviewing the report...")

@@ -1,14 +1,19 @@
 from langchain.agents import create_agent
 from langchain_mistralai import ChatMistralAI
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from tools import web_search, scrape_url
 from dotenv import load_dotenv
 load_dotenv()
 
-# model setup
-llm = ChatMistralAI(model = "mistral-medium-latest", temperature = 0.1)
+# model setup (Order: Gemini -> Groq -> Mistral)
+gemini_llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro", temperature=0.1)
+groq_llm = ChatGroq(model="llama3-70b-8192", temperature=0.1)
+mistral_llm = ChatMistralAI(model="mistral-medium-latest", temperature=0.1)
 
+llm = gemini_llm.with_fallbacks([groq_llm, mistral_llm])
 # search agent
 def build_search_agent():
     return create_agent(
