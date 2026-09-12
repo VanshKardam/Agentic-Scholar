@@ -9,9 +9,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # model setup (Order: Gemini -> Groq -> Mistral)
-gemini_llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro", temperature=0.1)
-groq_llm = ChatGroq(model="llama3-70b-8192", temperature=0.1)
-mistral_llm = ChatMistralAI(model="mistral-medium-latest", temperature=0.1)
+gemini_llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.1)
+groq_llm = ChatGroq(model="llama3-8b-8192", temperature=0.1)
+mistral_llm = ChatMistralAI(model="open-mistral-nemo", temperature=0.1)
 
 llm = gemini_llm.with_fallbacks([groq_llm, mistral_llm])
 # search agent
